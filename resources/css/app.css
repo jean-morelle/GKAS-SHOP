@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../../app/Enums/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Georgia', 'Times New Roman', ui-serif, serif;
+
+    /* Identité GKAS-GROUP : bleu nuit + orange */
+    --color-brand-50: #eef4ff;
+    --color-brand-100: #dbe6fe;
+    --color-brand-200: #bfd3fe;
+    --color-brand-300: #93b4fd;
+    --color-brand-400: #608bfa;
+    --color-brand-500: #3b65f5;
+    --color-brand-600: #2546ea;
+    --color-brand-700: #1d35d7;
+    --color-brand-800: #1e2eae;
+    --color-brand-900: #1e2d89;
+    --color-brand-950: #161d53;
+
+    --color-accent-400: #fbaa3c;
+    --color-accent-500: #f98e16;
+    --color-accent-600: #ea730c;
+}
+
+@layer base {
+    html { -webkit-tap-highlight-color: transparent; }
+    [x-cloak], [hidden] { display: none !important; }
+    input[type='number']::-webkit-inner-spin-button { opacity: 1; }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .btn-primary { @apply bg-brand-600 text-white shadow-sm hover:bg-brand-700 focus-visible:ring-brand-500; }
+    .btn-accent { @apply bg-accent-500 text-white shadow-sm hover:bg-accent-600 focus-visible:ring-accent-500; }
+    .btn-secondary { @apply border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50 focus-visible:ring-brand-500; }
+    .btn-danger { @apply bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-red-500; }
+    .btn-ghost { @apply text-slate-600 hover:bg-slate-100 hover:text-slate-900; }
+    .btn-sm { @apply px-3 py-1.5 text-xs; }
+
+    .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm; }
+    .card-body { @apply p-5 sm:p-6; }
+
+    .form-label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+    .form-input {
+        @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none;
+    }
+    .form-input.is-invalid { @apply border-red-400 focus:border-red-500 focus:ring-red-500/20; }
+    .form-help { @apply mt-1 text-xs text-slate-500; }
+    .form-error { @apply mt-1 text-xs font-medium text-red-600; }
+
+    .table { @apply min-w-full divide-y divide-slate-200 text-sm; }
+    .table th { @apply bg-slate-50 px-4 py-3 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase; }
+    .table td { @apply px-4 py-3 align-middle text-slate-700; }
+    .table tbody tr { @apply hover:bg-slate-50/60; }
+
+    .nav-link { @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white; }
+    .nav-link.active { @apply bg-white/15 text-white; }
+}
+
+/* ---- Thèmes des boutiques publiques ------------------------------------ */
+.shop {
+    --shop-radius: 1rem;
+    --shop-bg: #f8fafc;
+    --shop-surface: #ffffff;
+    --shop-text: #0f172a;
+    background: var(--shop-bg);
+    color: var(--shop-text);
+}
+.shop-elegant { --shop-radius: 0.375rem; --shop-bg: #faf8f5; font-family: var(--font-serif); }
+.shop-vibrant { --shop-radius: 1.25rem; --shop-bg: #fff7ed; }
+.shop-minimal { --shop-radius: 0; --shop-bg: #ffffff; }
+.shop-minimal .shop-card { box-shadow: none; border-color: #e5e7eb; }
+
+.shop .rounded-shop { border-radius: var(--shop-radius); }
+.shop .bg-shop-primary { background-color: var(--shop-primary); }
+.shop .text-shop-primary { color: var(--shop-primary); }
+.shop .border-shop-primary { border-color: var(--shop-primary); }
+.shop .ring-shop-primary { --tw-ring-color: var(--shop-primary); }
+.shop .btn-shop {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    background-color: var(--shop-primary); color: #fff; font-weight: 600;
+    border-radius: var(--shop-radius); padding: .75rem 1.25rem; transition: filter .15s;
+}
+.shop .btn-shop:hover { filter: brightness(.92); }
+.shop .btn-shop-outline {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    border: 2px solid var(--shop-primary); color: var(--shop-primary); font-weight: 600;
+    border-radius: var(--shop-radius); padding: .625rem 1.125rem; background: #fff;
+}
+.shop-vibrant .shop-header { background-color: var(--shop-primary); color: #fff; }
+.shop-vibrant .shop-header a, .shop-vibrant .shop-header .shop-header-muted { color: #fff; }
