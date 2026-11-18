@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GKAS Shop — plateforme e-commerce multi-boutiques de GKAS-GROUP
 
 Une seule application Laravel qui héberge plusieurs boutiques indépendantes
@@ -273,3 +274,6 @@ et sa variante `www.` ; pour en déclarer d'autres : `GKAS_PLATFORM_DOMAINS=gkas
 - Pas encore de paiement en ligne : intégration **FedaPay** prévue (gestion manuelle sécurisée en attendant).
 - E-mails : désactivés par défaut ; activer `GKAS_MAIL_NOTIFICATIONS` après configuration SMTP.
 - Domaines personnalisés : la configuration DNS / Apache / HTTPS reste manuelle (voir ci-dessus).
+=======
+# GKAS-SHOP
+>>>>>>> 357ef22864ef78ab45bf7b05b219fe03552aa4a5
